@@ -56,9 +56,6 @@ public class EmailValidatorTest {
     // Check all of the known unacceptable email addresses
     for (String email : rejectedEmails){
       boolean result = emailValidator.isValid(email);
-      if (result == true){
-        System.out.println("Accepted bad email: " +email);
-      }
       assertFalse(result);   
     } 
   }
