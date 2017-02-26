@@ -19,6 +19,12 @@ public class EmailValidatorTest {
      "johnemail.com",
      "jane@emailcom",
      "bob.smith@email@com",
+     // Stage2 test case: Emails cannot start or end with a '.'
+     ".bob.smith@email.com", 
+     "bob.smith@email.com.",
+     // Stage2 test case: Emails cannot start or end with a '@'
+     "@bob.smith@email.com",
+     "bob.smith.email.com@"
     };
 
   /**
