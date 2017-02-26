@@ -19,9 +19,12 @@ public class EmailValidatorTest {
      "johnemail.com",
      "jane@emailcom",
      "bob.smith@email@com",
-     "alice@email.co.uk",
     };
-  
+
+  /**
+   * Test which checks a list of known good emails 
+   * to see if they are valid.
+   */
   @Test
   public void testAcceptedEmails() {
    EmailValidator emailValidator = EmailValidator.getInstance();
@@ -30,10 +33,15 @@ public class EmailValidatorTest {
    // Check all of the known acceptable email addresses
    for (String email : acceptedEmails){
      boolean result = emailValidator.isValid(email);
-     assertTrue(result);   
+     assertTrue(result);
    }
   }
   
+  
+  /**
+   * Test which checks a list of known bad emails
+   * to see if they are valid. 
+   */
   @Test
   public void TestRejectedEmails() {
     EmailValidator emailValidator = EmailValidator.getInstance();
@@ -42,6 +50,9 @@ public class EmailValidatorTest {
     // Check all of the known unacceptable email addresses
     for (String email : rejectedEmails){
       boolean result = emailValidator.isValid(email);
+      if (result == true){
+        System.out.println("Accepted bad email: " +email);
+      }
       assertFalse(result);   
     } 
   }
